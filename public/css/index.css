@@ -1,0 +1,12 @@
+btnHome{
+    background-color: darkgreen;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+a.btmHome:hover{
+    color: rgb(1,1,1) !important;
+}

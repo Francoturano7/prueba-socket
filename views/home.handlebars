@@ -1,0 +1,65 @@
+{{!-- <div class="container">
+    <div>
+        <h1>Chat Coder</h1>
+        <div id="caja"></div>
+    </div>
+    <div>
+        <form onsubmit="return addmessage()">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="username" placeholder="Tu nombre..">
+                </div>
+                <div class="mb-3">
+                <textarea class="form-control" id="texto" rows="3" placeholder="Tu mensaje..."></textarea>
+            </div>
+            <input type="submit" class="btn btn-primary mb-3" value="Enviar">
+        </form>
+    </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script> --}}
+
+
+
+<div class="container">
+  <div style=" float:right;padding: 28px">
+      <form action="http://localhost:8080/realtimeproducts">
+      <button type="submit" class="btn btn-outline-success">Agregar Productos
+      </button>
+    </form>
+  </div>
+  <h1 style="text-align: center; color:red; font-weight:800; margin: 50px" class="mt-2">Lista de Productos </h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Código</th>
+        <th scope="col">Imagen</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each data}}
+      <tr>
+
+        <td>{{title}}</td>
+        <td>{{description}}</td>
+        <td>${{price}}</td>
+        <td>{{stock}}</td>
+        <td>{{category}}</td>
+        <td>{{code}}</td>
+        <td><img src="{{thumbnail}}" alt="" width="30px"> </td>
+      </tr>
+
+      {{/each}}
+    </tbody>
+  </table>
+
+
+
+
+</div>
