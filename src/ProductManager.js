@@ -1,9 +1,9 @@
 const fs = require(`fs`);
 const uuid4 = require("uuid4");
 
- class ProductManager {
+class ProductManager {
     constructor() {
-        this.path = "../db/productos.json";
+        this.path = "./db/productos.json";
         this.products = [];
     }
 
@@ -12,8 +12,9 @@ const uuid4 = require("uuid4");
 
     async addProduct(product) {
         try {
+            console.log("producto", product);
             let products = await this.getProducts()
-            if (!product.title || !product.description || !product.price || !product.thumbnail || !product.code || !product.stock || !product.status || !product.category) {
+            if (!product.title || !product.description || !product.price || !product.thumbnail || !product.code || !product.stock || !product.category) {
                 return "Error: Todos los campos son obligatorios.";
             }
             if (products.some(p => p.code === product.code)) {
@@ -34,6 +35,7 @@ const uuid4 = require("uuid4");
             return JSON.parse(respuesta);
         } catch (error) {
             if (error.code === "ENOENT") {
+                console.log(error);
                 return []
             } else {
                 throw err;
@@ -67,4 +69,4 @@ const uuid4 = require("uuid4");
     }
 }
 
-module.exports=ProductManager
+module.exports = ProductManager

@@ -1,8 +1,8 @@
-const Router =require ("express");
- const cartsRouter = Router()
+const Router = require("express");
+const cartsRouter = Router()
 
 
-const CartManager= require (`../src/CartManager`) ;
+const CartManager = require(`../src/CartManager`);
 
 const cart = new CartManager(`../db/carrito.json`)
 
@@ -26,5 +26,5 @@ cartsRouter.post(`/:cid/products/:pid`, async (req, res) => {
     res.send(await cart.addProductInCart(cartId, productId))
 })
 
-module.exports=cartsRouter
+module.exports = cartsRouter
 
